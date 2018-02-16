@@ -72,6 +72,7 @@ defmodule Mix.Tasks.Compile.Cmake do
             [output_file] ->
               Mix.shell().info("Copying '#{output_file}' to '#{output_dir}'")
 
+              File.mkdir_p(output_dir)
               File.cp!(Path.join(build_dir, output_file), target_path)
 
             [_first, _second | _rest] ->
